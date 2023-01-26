@@ -3,7 +3,6 @@ import { api } from ".";
 export const uploadFiles = (files = []) => {
   const formData = new FormData();
   files.forEach((file) => formData.append("files", file));
-  console.log({ files, formData });
 
   const config = {
     headers: {

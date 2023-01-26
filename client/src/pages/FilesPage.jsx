@@ -27,9 +27,8 @@ export default function FilesPage() {
     getFiles(pageNumber).then((response) => {
       setFiles(response.files);
       setNumberOfPages(response.totalPages);
-      console.log(response.files);
     });
-  }, [pageNumber, files]);
+  }, [pageNumber, selectedFiles]);
 
   const onFilesSelect = (files) => {
     setSelectedFiles(files);
@@ -65,7 +64,6 @@ export default function FilesPage() {
       link.click();
     });
   };
-  console.log(pageNumber);
   return (
     <Row>
       <a ref={downloadLinkRef} href="" download={"file.txt"}></a>

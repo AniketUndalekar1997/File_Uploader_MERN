@@ -32,7 +32,6 @@ export default function AuthContextProvider({ children }) {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      console.log("onAuthStateChanged");
       setUser(user);
     });
     return () => {
@@ -41,7 +40,6 @@ export default function AuthContextProvider({ children }) {
   }, []);
 
   const logout = () => {
-    console.log("logout from auth");
     signOut(auth);
   };
 
