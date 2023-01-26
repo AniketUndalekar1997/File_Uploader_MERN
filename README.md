@@ -1,2 +1,2 @@
 # File_Uploader_MERN
-An Simple MERN stack File Uploader Application.
+A MERN File Uploader Application with Firebase Authentication
