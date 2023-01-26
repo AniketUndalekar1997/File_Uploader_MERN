@@ -39,32 +39,34 @@ export default function FileList({
         </table>
       </div>
 
-      <nav aria-label="Page navigation example">
-        <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link" onClick={gotoPreviousPage}>
-              Previous
-            </a>
-          </li>
-
-          {pages.map((pageIndex) => (
-            <li key={pageIndex} class="page-item">
-              <a
-                class="page-link"
-                onClick={() => setPageNumberCallback(pageIndex)}
-              >
-                {pageIndex + 1}
+      {files.length != 0 && (
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" onClick={gotoPreviousPage}>
+                Previous
               </a>
             </li>
-          ))}
 
-          <li class="page-item">
-            <a class="page-link" onClick={gotoNextPage}>
-              Next
-            </a>
-          </li>
-        </ul>
-      </nav>
+            {pages.map((pageIndex) => (
+              <li key={pageIndex} class="page-item">
+                <a
+                  class="page-link"
+                  onClick={() => setPageNumberCallback(pageIndex)}
+                >
+                  {pageIndex + 1}
+                </a>
+              </li>
+            ))}
+
+            <li class="page-item">
+              <a class="page-link" onClick={gotoNextPage}>
+                Next
+              </a>
+            </li>
+          </ul>
+        </nav>
+      )}
     </div>
   );
 }
