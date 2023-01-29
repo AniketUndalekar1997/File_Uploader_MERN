@@ -4,6 +4,7 @@ const { createConnection } = require("./db");
 const { authRouter } = require("./routers/auth-router");
 const { fileRouter } = require("./routers/file-router");
 const { authMiddleware } = require("./middlewares/auth-middleware");
+const { fileDownloadRouter } = require("./routers/file-download-route");
 
 createConnection(() => {
   console.log("Connected Mongo DB...");
@@ -23,6 +24,7 @@ app.get("/ping", (request, response) => {
 // app.use("/api/files", fileRouter);
 app.use("/api/files", authMiddleware, fileRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/download/file", fileDownloadRouter);
 
 app.listen(PORT, () => {
   console.log(`server is listening on port ${PORT}`);

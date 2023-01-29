@@ -30,6 +30,7 @@ fileRouter.get("/", async (request, response) => {
   const page = parseInt(request.query.page || "0");
   const total = await File.countDocuments({ user: userId });
   const files = await File.find({ user: userId })
+    .sort({ _id: -1 })
     .limit(pageSize)
     .skip(pageSize * page);
   response.json({
@@ -59,12 +60,12 @@ fileRouter.post(
   }
 );
 
-// api/files/:fileid
-fileRouter.get("/:fileid", async (request, response) => {
-  const file = await File.findById(request.params.fileid);
-  const filePath = path.join(process.cwd(), file.path);
-  response.download(filePath);
-});
+// // api/files/:fileid
+// fileRouter.get("/download/:fileid", async (request, response) => {
+//   const file = await File.findById(request.params.fileid);
+//   const filePath = path.join(process.cwd(), file.path);
+//   response.download(filePath);
+// });
 
 module.exports = {
   fileRouter,

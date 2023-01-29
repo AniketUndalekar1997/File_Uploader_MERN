@@ -23,7 +23,7 @@ export const getFiles = (pageNumber) => {
 
 export const getFile = (fileid) => {
   return api
-    .get(`/api/files/${fileid}`, { responseType: "blob" })
+    .get(`/api/download/file/${fileid}`, { responseType: "blob" })
     .then((response) => {
       const blob = response.data;
       return window.URL.createObjectURL(blob);

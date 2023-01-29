@@ -28,7 +28,7 @@ export default function FilesPage() {
       setFiles(response.files);
       setNumberOfPages(response.totalPages);
     });
-  }, [pageNumber, selectedFiles]);
+  }, [pageNumber]);
 
   const onFilesSelect = (files) => {
     setSelectedFiles(files);
